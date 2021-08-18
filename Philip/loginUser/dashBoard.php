@@ -31,6 +31,10 @@ if ($n > 0) {
         // if ($row["id"]) continue;
         $tbody .= "<tr>";
         foreach ($row as $key => $value) {
+            if ($key == "id") {
+                $tbody .= "</tr>";
+                continue;
+            }
             $fileExtension = strtolower(pathinfo($value,PATHINFO_EXTENSION));
             if (in_array($fileExtension, $filesAllowed)) $tbody .= "<td><img class='img-thumbnail rounded-circle' src='pictures/" . $value . "' alt=" . $row['Name'] . "></td>";
             else $tbody .= "<td>$value</td>";
