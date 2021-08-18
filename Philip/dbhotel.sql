@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2021 at 03:49 PM
+-- Generation Time: Aug 18, 2021 at 03:26 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -41,7 +41,9 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`id`, `fk_hotel_id`, `fk_user_id`, `date`) VALUES
-(8, 1, 2, '2021-08-03');
+(8, 1, 2, '2021-08-03'),
+(9, 3, 2, '2021-08-29'),
+(12, 9, 3, '2021-08-18');
 
 -- --------------------------------------------------------
 
@@ -67,8 +69,8 @@ CREATE TABLE `hotel` (
 INSERT INTO `hotel` (`id`, `room`, `floor`, `description`, `price`, `duration`, `picture`, `status`) VALUES
 (1, 'room A', '1', 'This is room A.', '400.00', 1, 'room1.webp', 'booked'),
 (2, 'room B', '2', 'This is room B.', '700.00', 2, 'room2.webp', 'available'),
-(3, 'room C', '3', 'This is room C.', '1500.00', 3, 'room3.jpg', 'available'),
-(5, 'Test room', '6', 'Test room made from test material', '500.00', 1, 'product.png', 'available');
+(3, 'room C', '3', 'This is room C.', '1500.00', 3, 'room3.jpg', 'booked'),
+(9, 'New test room', '0', 'First room here', '200.00', 1, 'product.png', 'booked');
 
 -- --------------------------------------------------------
 
@@ -93,7 +95,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `password`, `date_of_birth`, `email`, `picture`, `status`) VALUES
 (1, 'Philip', 'Mahlberg', '$2y$10$yH6798Q9O1HJ/Iqx7g7.tO/Z7Aam9.BIEnc.EdUxd6fM5fX1PvUVO', '1992-06-13', 'pm@mail.de', '611b7ba9f0ca2.png', 'adm'),
-(2, 'John', 'Dorian', '$2y$10$cKX4fhhrmslv6Nm3NvgKIeLqI9iNc9pErCVjQZSEBnAUq5/0vmH8.', '1976-01-01', 'jd@mail.de', '611b7e1086593.jpg', 'user');
+(2, 'John', 'Dorian', '$2y$10$cKX4fhhrmslv6Nm3NvgKIeLqI9iNc9pErCVjQZSEBnAUq5/0vmH8.', '1976-01-10', 'jd@mail.de', '611b7e1086593.jpg', 'user'),
+(3, 'Glen', 'Matthews', '$2y$10$wZFPR6DiGUzeOkibLogrDucF2fZPExRSaa9XEWvd2gcCK0WaEjTJO', '1964-11-13', 'gm@mail.de', '611c03d3348ed.jpg', 'user'),
+(4, 'Bob', 'Kelso', '$2y$10$2Br9WjwaX9n9Fca5dq/nre219Oud1texMfkLeYndZVDLmRCvx6y0K', '1942-04-09', 'bk@mail.de', '611d019919cb4.png', 'user');
 
 --
 -- Indexes for dumped tables
@@ -127,19 +131,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `hotel`
 --
 ALTER TABLE `hotel`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
